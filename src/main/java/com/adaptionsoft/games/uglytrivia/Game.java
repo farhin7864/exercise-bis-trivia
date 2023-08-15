@@ -1,7 +1,6 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -45,7 +44,7 @@ public class Game {
 
 	private void addQuestionAndAnswers() {
 
-		// Sports
+// Sports
 		sportsQuestions.add("Which sport has 11 playes on the field?");
 		sportsAnswers.add("Cricket");
 
@@ -70,17 +69,7 @@ public class Game {
 		sportsQuestions.add("How long is the total distance of a marathon?");
 		sportsAnswers.add(String.valueOf(5));
 
-		/*
-		 * String[] newQuestions = { "Which animal lays eggs?", "A male cow is called?",
-		 * "All animals need food, air, and ____ to survive.",
-		 * "Which one is a fur-bearing animal?" };
-		 * 
-		 * String[] newAnswers = { "Duck", "Ox", "Water", "Cat" };
-		 * 
-		 * scienceQuestions.addAll(Arrays.asList(newQuestions));
-		 * scienceAnswers.addAll(Arrays.asList(newAnswers));
-		 */
-
+//Science
 		scienceQuestions.add("Which animal lays eggs?");
 		scienceAnswers.add("Duck");
 
@@ -97,15 +86,15 @@ public class Game {
 		scienceAnswers.add("Duck");
 
 		scienceQuestions.add("A male cow is called?");
-		scienceAnswers.add(5, "Ox");
+		scienceAnswers.add("Ox");
 
-		scienceQuestions.add(6, "All animals need food, air, and ____ to survive.");
-		scienceAnswers.add(6, "Water");
+		scienceQuestions.add("All animals need food, air, and ____ to survive.");
+		scienceAnswers.add("Water");
 
-		scienceQuestions.add(7, "Which one is a fur-bearing animal?");
-		scienceAnswers.add(7, "Cat");
+		scienceQuestions.add("Which one is a fur-bearing animal?");
+		scienceAnswers.add("Cat");
 
-		// Rock
+// Rock
 		rockQuestions.add("Which is the largest country in the world?");
 		rockAnswers.add("Russia");
 
@@ -130,7 +119,19 @@ public class Game {
 		rockQuestions.add("Which planet is nearest to the Earth??");
 		rockAnswers.add("Venus");
 
-		// pop
+//Pop
+		popQuestions.add("What is the smallest planet in our solar system?");
+		popAnswers.add("Mercury");
+
+		popQuestions.add("What sport did David Beckham play?");
+		popAnswers.add("Football");
+
+		popQuestions.add("What has Mohammed Ali’s original name?");
+		popAnswers.add("Boxing");
+
+		popQuestions.add("What does the Latin word 'tempus' mean in English?");
+		popAnswers.add("Time");
+		
 		popQuestions.add("What is the smallest planet in our solar system?");
 		popAnswers.add("Mercury");
 
@@ -209,11 +210,13 @@ public class Game {
 			strQuestion = popQuestions.removeFirst();
 			System.out.println(strQuestion);
 			inputFromUser = sc.next();
+			//Store answer
+			
 			validateAnswer(currentCategory(), index, inputFromUser);
 
 		}
 		if (currentCategory() == "Science") {
-			index = scienceQuestions.indexOf(scienceQuestions.size()) + 1;
+			index = scienceAnswers.indexOf(scienceQuestions.size()) + 1;
 			String strQuestion = scienceQuestions.removeFirst();
 			System.out.println(strQuestion);
 			inputFromUser = sc.next();
@@ -227,7 +230,7 @@ public class Game {
 			validateAnswer(currentCategory(), index, inputFromUser);
 		}
 		if (currentCategory() == "Rock") {
-			index = rockQuestions.indexOf(rockQuestions.size()) + 1;
+			index = rockAnswers.indexOf(rockQuestions.size()) + 1;
 			String strQuestion = rockQuestions.removeFirst();
 			System.out.println(strQuestion);
 			inputFromUser = sc.next();
@@ -238,23 +241,23 @@ public class Game {
 	// Validate the input answer and call for existing methods.
 	private boolean validateAnswer(String strCategory, int index, String inputFromUser) {
 
-		if (strCategory == "Pop")
-			if (popAnswers.get(index).equals(inputFromUser)) {
+		if (strCategory.equalsIgnoreCase("Pop"))
+			if (popAnswers.contains(inputFromUser)) {
 				return true;
 			}
 
-		if (strCategory == "Rock")
-			if (rockAnswers.get(index).equals(inputFromUser)) {
+		if (strCategory.equalsIgnoreCase("Rock"))
+			if (rockAnswers.contains(inputFromUser)) {
 				return true;
 			}
 
-		if (strCategory == "Science")
-			if (scienceAnswers.get(index).equals(inputFromUser)) {
-				return true;
+		if (strCategory.equalsIgnoreCase("Science"))
+			if (scienceAnswers.contains(inputFromUser))//.get(index).equals(inputFromUser)) {
+			{	return true;
 			}
 
-		if (strCategory == "Sports")
-			if (sportsAnswers.get(index).equals(inputFromUser)) {
+		if (strCategory.equalsIgnoreCase("Sports"))
+			if (sportsAnswers.contains(inputFromUser)){
 				return true;
 			}
 		return false;
