@@ -1,6 +1,7 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -25,73 +26,122 @@ public class Game {
 	int index = -1;
 
 	Scanner sc = new Scanner(System.in);
+	String inputFromUser, strQuestion;
 
 	public Game() {
 
 		// Add questions
 		addQuestionAndAnswers();
 
+		
 		/*
 		 * for (int i = 0; i < 2; i++) { popQuestions.addLast("Pop Question " + i);
 		 * scienceQuestions.addLast(("Science Question " + i));
 		 * sportsQuestions.addLast(("Sports Question " + i));
 		 * rockQuestions.addLast(createRockQuestion(i)); }
 		 */
+		 
 	}
 
 	private void addQuestionAndAnswers() {
 
 		// Sports
-		sportsQuestions.add(0, "Which sport has 11 playes on the field?");
-		sportsAnswers.add(0, "Cricket");
+		sportsQuestions.add("Which sport has 11 playes on the field?");
+		sportsAnswers.add("Cricket");
 
-		sportsQuestions.add(1, " Which sport uses a net, a racket, and a shuttlecock?");
-		sportsAnswers.add(1, "Badminton");
+		sportsQuestions.add("Which sport uses a net, a racket, and a shuttlecock?");
+		sportsAnswers.add("Badminton");
 
-		sportsQuestions.add(2, "What sport is described as “the beautiful game?”");
-		sportsAnswers.add(2, "Football");
+		sportsQuestions.add("What sport is described as “the beautiful game?”");
+		sportsAnswers.add("Football");
 
-		sportsQuestions.add(3, "How long is the total distance of a marathon?");
-		sportsAnswers.add(3, String.valueOf(5));
+		sportsQuestions.add("How long is the total distance of a marathon?");
+		sportsAnswers.add(String.valueOf(5));
 
-		// Science
-		scienceQuestions.add(0, "Which animal lays eggs?");
-		scienceAnswers.add(0, "Duck");
+		sportsQuestions.add("Which sport has 11 playes on the field?");
+		sportsAnswers.add("Cricket");
 
-		scienceQuestions.add(1, "A male cow is called?");
+		sportsQuestions.add("Which sport uses a net, a racket, and a shuttlecock?");
+		sportsAnswers.add("Badminton");
+
+		sportsQuestions.add("What sport is described as “the beautiful game?”");
+		sportsAnswers.add("Football");
+
+		sportsQuestions.add("How long is the total distance of a marathon?");
+		sportsAnswers.add(String.valueOf(5));
+
+		/*
+		 * String[] newQuestions = { "Which animal lays eggs?", "A male cow is called?",
+		 * "All animals need food, air, and ____ to survive.",
+		 * "Which one is a fur-bearing animal?" };
+		 * 
+		 * String[] newAnswers = { "Duck", "Ox", "Water", "Cat" };
+		 * 
+		 * scienceQuestions.addAll(Arrays.asList(newQuestions));
+		 * scienceAnswers.addAll(Arrays.asList(newAnswers));
+		 */
+
+		scienceQuestions.add("Which animal lays eggs?");
+		scienceAnswers.add("Duck");
+
+		scienceQuestions.add("A male cow is called?");
 		scienceAnswers.add(1, "Ox");
 
-		scienceQuestions.add(2, "All animals need food, air, and ____ to survive.");
-		scienceAnswers.add(2, "Water");
+		scienceQuestions.add("All animals need food, air, and ____ to survive.");
+		scienceAnswers.add("Water");
 
-		scienceQuestions.add(3, "Which one is a fur-bearing animal?");
-		scienceAnswers.add(3, "Cat");
+		scienceQuestions.add("Which one is a fur-bearing animal?");
+		scienceAnswers.add("Cat");
+
+		scienceQuestions.add("Which animal lays eggs?");
+		scienceAnswers.add("Duck");
+
+		scienceQuestions.add("A male cow is called?");
+		scienceAnswers.add(5, "Ox");
+
+		scienceQuestions.add(6, "All animals need food, air, and ____ to survive.");
+		scienceAnswers.add(6, "Water");
+
+		scienceQuestions.add(7, "Which one is a fur-bearing animal?");
+		scienceAnswers.add(7, "Cat");
 
 		// Rock
-		rockQuestions.add(0, "Which is the largest country in the world?");
-		rockAnswers.add(0, "Russia");
+		rockQuestions.add("Which is the largest country in the world?");
+		rockAnswers.add("Russia");
 
-		rockQuestions.add(1, "Which country has the largest population in the world?");
-		rockAnswers.add(1, "China");
+		rockQuestions.add("Which country has the largest population in the world?");
+		rockAnswers.add("China");
 
-		rockQuestions.add(2, "In which country would you find the Leaning Tower of Pisa?");
-		rockAnswers.add(2, "Italy");
+		rockQuestions.add("In which country would you find the Leaning Tower of Pisa?");
+		rockAnswers.add("Italy");
 
-		rockQuestions.add(3, "Which planet is nearest to the Earth??");
-		rockAnswers.add(3, "Venus");
+		rockQuestions.add("Which planet is nearest to the Earth??");
+		rockAnswers.add("Venus");
+
+		rockQuestions.add("Which is the largest country in the world?");
+		rockAnswers.add("Russia");
+
+		rockQuestions.add("Which country has the largest population in the world?");
+		rockAnswers.add("China");
+
+		rockQuestions.add("In which country would you find the Leaning Tower of Pisa?");
+		rockAnswers.add("Italy");
+
+		rockQuestions.add("Which planet is nearest to the Earth??");
+		rockAnswers.add("Venus");
 
 		// pop
-		popQuestions.add(0, "What is the smallest planet in our solar system?");
-		popAnswers.add(0, "Mercury");
+		popQuestions.add("What is the smallest planet in our solar system?");
+		popAnswers.add("Mercury");
 
-		popQuestions.add(1, "What sport did David Beckham play?");
-		popAnswers.add(1, "Football");
+		popQuestions.add("What sport did David Beckham play?");
+		popAnswers.add("Football");
 
-		popQuestions.add(2, "What has Mohammed Ali’s original name?");
-		popAnswers.add(2, "Boxing");
+		popQuestions.add("What has Mohammed Ali’s original name?");
+		popAnswers.add("Boxing");
 
-		popQuestions.add(3, "What does the Latin word 'tempus' mean in English?");
-		popAnswers.add(3, "Time");
+		popQuestions.add("What does the Latin word 'tempus' mean in English?");
+		popAnswers.add("Time");
 
 	}
 
@@ -156,64 +206,58 @@ public class Game {
 	private void askQuestion() {
 		if (currentCategory() == "Pop") {
 			index = popQuestions.indexOf(popQuestions.size()) + 1;
-			String strQuestion = popQuestions.removeFirst();
+			strQuestion = popQuestions.removeFirst();
 			System.out.println(strQuestion);
-			String inputFromUser = sc.next();
+			inputFromUser = sc.next();
 			validateAnswer(currentCategory(), index, inputFromUser);
+
 		}
 		if (currentCategory() == "Science") {
 			index = scienceQuestions.indexOf(scienceQuestions.size()) + 1;
 			String strQuestion = scienceQuestions.removeFirst();
 			System.out.println(strQuestion);
-			String inputFromUser = sc.next();
+			inputFromUser = sc.next();
 			validateAnswer(currentCategory(), index, inputFromUser);
 		}
 		if (currentCategory() == "Sports") {
 			index = sportsQuestions.indexOf(sportsQuestions.size()) + 1;
 			String strQuestion = sportsQuestions.removeFirst();
 			System.out.println(strQuestion);
-			String inputFromUser = sc.next();
+			inputFromUser = sc.next();
 			validateAnswer(currentCategory(), index, inputFromUser);
 		}
 		if (currentCategory() == "Rock") {
 			index = rockQuestions.indexOf(rockQuestions.size()) + 1;
 			String strQuestion = rockQuestions.removeFirst();
 			System.out.println(strQuestion);
-			String inputFromUser = sc.next();
+			inputFromUser = sc.next();
 			validateAnswer(currentCategory(), index, inputFromUser);
 		}
 	}
 
-	// Valiedate the input answer and call for existing methods.
-	private void validateAnswer(String strCategory, int index, String inputFromUser) {
+	// Validate the input answer and call for existing methods.
+	private boolean validateAnswer(String strCategory, int index, String inputFromUser) {
 
 		if (strCategory == "Pop")
 			if (popAnswers.get(index).equals(inputFromUser)) {
-				wasCorrectlyAnswered();
-			} else {
-				wrongAnswer();
+				return true;
 			}
 
 		if (strCategory == "Rock")
 			if (rockAnswers.get(index).equals(inputFromUser)) {
-				wasCorrectlyAnswered();
-			} else {
-				wrongAnswer();
+				return true;
 			}
 
 		if (strCategory == "Science")
 			if (scienceAnswers.get(index).equals(inputFromUser)) {
-				wasCorrectlyAnswered();
-			} else {
-				wrongAnswer();
+				return true;
 			}
 
 		if (strCategory == "Sports")
 			if (sportsAnswers.get(index).equals(inputFromUser)) {
-				wasCorrectlyAnswered();
-			} else {
-				wrongAnswer();
+				return true;
 			}
+		return false;
 	}
 
 	private String currentCategory() {
@@ -270,6 +314,7 @@ public class Game {
 				currentPlayer = 0;
 
 			return winner;
+
 		}
 	}
 
