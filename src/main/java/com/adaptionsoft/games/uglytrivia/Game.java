@@ -331,26 +331,34 @@ public class Game {
 	    String currentCategory = currentCategory();
 	    String currentQuestion = "";
 
-	    if (currentCategory.equalsIgnoreCase("Pop")) {
-	        questionList = popQuestions;
-	        answerList = popAnswers;
-	    } else if (currentCategory.equalsIgnoreCase("Science")) {
-	        questionList = scienceQuestions;
-	        answerList = scienceAnswers;
-	    } else if (currentCategory.equalsIgnoreCase("Sports")) {
-	        questionList = sportsQuestions;
-	        answerList = sportsAnswers;
-	    } else {
-	        questionList = rockQuestions;
-	        answerList = rockAnswers;
-	    }
+	    try {
+			if (currentCategory.equalsIgnoreCase(GameEnums.Pop.toString())) {
+			    questionList = popQuestions;
+			    answerList = popAnswers;
+			} else if (currentCategory.equalsIgnoreCase(GameEnums.Science.toString())) {
+			    questionList = scienceQuestions;
+			    answerList = scienceAnswers;
+			} else if (currentCategory.equalsIgnoreCase(GameEnums.Sports.toString())) {
+			    questionList = sportsQuestions;
+			    answerList = sportsAnswers;
+			} else {
+			    questionList = rockQuestions;
+			    answerList = rockAnswers;
+			}
 
-	    if (!questionList.isEmpty()) {
-	        currentQuestion = questionList.removeFirst();
-	        System.out.println(currentQuestion);
-	        setInputFromUser(sc.next());
-	        validateAnswer(currentCategory, currentQuestion, getInputFromUser());
-	    }
+			if (!questionList.isEmpty()) {
+			    currentQuestion = questionList.removeFirst();
+			    System.out.println(currentQuestion);
+			    setInputFromUser(sc.next());
+			    validateAnswer(currentCategory, currentQuestion, getInputFromUser());
+			}
+			else 
+			{
+				System.out.println("Question list is empty for " + currentCategory + "category.");
+			}
+		} catch (Exception e) {
+			System.out.println("Error occured : " +e.getMessage());
+		}
 	}
 
 	
