@@ -1,6 +1,7 @@
 package com.adaptionsoft.games.uglytrivia;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -25,7 +26,11 @@ public class Game {
 	int index = -1;
 
 	Scanner sc = new Scanner(System.in);
-	String inputFromUser, strQuestion;
+	private String inputFromUser;
+	private String strQuestion;
+	
+    LinkedList<String> questionList;
+    LinkedList<String> answerList;
 
 	public Game() {
 
@@ -45,29 +50,28 @@ public class Game {
 	private void addQuestionAndAnswers() {
 
 // Sports
-		sportsQuestions.add("Which sport has 11 playes on the field?");
-		sportsAnswers.add("Cricket");
+		
+		sportsQuestions.addAll(Arrays.asList(
+			    "Which sport has 11 playes on the field?",
+			    "Which sport uses a net, a racket, and a shuttlecock?",
+			    "What sport is described as “the beautiful game?”",
+			    "How long is the total distance of a marathon?",
+			    "Which sport has 11 playes on the field?",
+			    "Which sport uses a net, a racket, and a shuttlecock?",
+			    "What sport is described as “the beautiful game?”",
+			    "How long is the total distance of a marathon?"
+			));
 
-		sportsQuestions.add("Which sport uses a net, a racket, and a shuttlecock?");
-		sportsAnswers.add("Badminton");
-
-		sportsQuestions.add("What sport is described as “the beautiful game?”");
-		sportsAnswers.add("Football");
-
-		sportsQuestions.add("How long is the total distance of a marathon?");
-		sportsAnswers.add(String.valueOf(5));
-
-		sportsQuestions.add("Which sport has 11 playes on the field?");
-		sportsAnswers.add("Cricket");
-
-		sportsQuestions.add("Which sport uses a net, a racket, and a shuttlecock?");
-		sportsAnswers.add("Badminton");
-
-		sportsQuestions.add("What sport is described as “the beautiful game?”");
-		sportsAnswers.add("Football");
-
-		sportsQuestions.add("How long is the total distance of a marathon?");
-		sportsAnswers.add(String.valueOf(5));
+			sportsAnswers.addAll(Arrays.asList(
+			    "Cricket",
+			    "Badminton",
+			    "Football",
+			    String.valueOf(5),
+			    "Cricket",
+			    "Badminton",
+			    "Football",
+			    String.valueOf(5)
+			));
 
 //Science
 		scienceQuestions.add("Which animal lays eggs?");
@@ -204,66 +208,44 @@ public class Game {
 
 	}
 
-	private void askQuestion() {
-		if (currentCategory() == "Pop") {
-			index = popQuestions.indexOf(popQuestions.size()) + 1;
-			strQuestion = popQuestions.removeFirst();
-			System.out.println(strQuestion);
-			inputFromUser = sc.next();
-			//Store answer
-			
-			validateAnswer(currentCategory(), index, inputFromUser);
-
-		}
-		if (currentCategory() == "Science") {
-			index = scienceAnswers.indexOf(scienceQuestions.size()) + 1;
-			String strQuestion = scienceQuestions.removeFirst();
-			System.out.println(strQuestion);
-			inputFromUser = sc.next();
-			validateAnswer(currentCategory(), index, inputFromUser);
-		}
-		if (currentCategory() == "Sports") {
-			index = sportsQuestions.indexOf(sportsQuestions.size()) + 1;
-			String strQuestion = sportsQuestions.removeFirst();
-			System.out.println(strQuestion);
-			inputFromUser = sc.next();
-			validateAnswer(currentCategory(), index, inputFromUser);
-		}
-		if (currentCategory() == "Rock") {
-			index = rockAnswers.indexOf(rockQuestions.size()) + 1;
-			String strQuestion = rockQuestions.removeFirst();
-			System.out.println(strQuestion);
-			inputFromUser = sc.next();
-			validateAnswer(currentCategory(), index, inputFromUser);
-		}
-	}
-
-	// Validate the input answer and call for existing methods.
-	private boolean validateAnswer(String strCategory, int index, String inputFromUser) {
-
-		if (strCategory.equalsIgnoreCase("Pop"))
-			if (popAnswers.contains(inputFromUser)) {
-				return true;
-			}
-
-		if (strCategory.equalsIgnoreCase("Rock"))
-			if (rockAnswers.contains(inputFromUser)) {
-				return true;
-			}
-
-		if (strCategory.equalsIgnoreCase("Science"))
-			if (scienceAnswers.contains(inputFromUser))//.get(index).equals(inputFromUser)) {
-			{	return true;
-			}
-
-		if (strCategory.equalsIgnoreCase("Sports"))
-			if (sportsAnswers.contains(inputFromUser)){
-				return true;
-			}
-		return false;
-	}
-
-	private String currentCategory() {
+	/*
+	 * private void askQuestion() { if (currentCategory() == "Pop") { index =
+	 * popQuestions.indexOf(popQuestions.size()) + 1; strQuestion =
+	 * popQuestions.removeFirst(); System.out.println(strQuestion); inputFromUser =
+	 * sc.next(); //Store answer
+	 * 
+	 * validateAnswer(currentCategory(), index, inputFromUser);
+	 * 
+	 * } if (currentCategory() == "Science") { index =
+	 * scienceAnswers.indexOf(scienceQuestions.size()) + 1; String strQuestion =
+	 * scienceQuestions.removeFirst(); System.out.println(strQuestion);
+	 * inputFromUser = sc.next(); validateAnswer(currentCategory(), index,
+	 * inputFromUser); } if (currentCategory() == "Sports") { index =
+	 * sportsQuestions.indexOf(sportsQuestions.size()) + 1; String strQuestion =
+	 * sportsQuestions.removeFirst(); System.out.println(strQuestion); inputFromUser
+	 * = sc.next(); validateAnswer(currentCategory(), index, inputFromUser); } if
+	 * (currentCategory() == "Rock") { index =
+	 * rockAnswers.indexOf(rockQuestions.size()) + 1; String strQuestion =
+	 * rockQuestions.removeFirst(); System.out.println(strQuestion); inputFromUser =
+	 * sc.next(); validateAnswer(currentCategory(), index, inputFromUser); } }
+	 * 
+	 * // Validate the input answer and call for existing methods. private boolean
+	 * validateAnswer(String strCategory, int index, String inputFromUser) {
+	 * 
+	 * if (strCategory.equalsIgnoreCase("Pop")) if
+	 * (popAnswers.contains(inputFromUser)) { return true; }
+	 * 
+	 * if (strCategory.equalsIgnoreCase("Rock")) if
+	 * (rockAnswers.contains(inputFromUser)) { return true; }
+	 * 
+	 * if (strCategory.equalsIgnoreCase("Science")) if
+	 * (scienceAnswers.contains(inputFromUser))//.get(index).equals(inputFromUser))
+	 * { { return true; }
+	 * 
+	 * if (strCategory.equalsIgnoreCase("Sports")) if
+	 * (sportsAnswers.contains(inputFromUser)){ return true; } return false; }
+	 */
+	public String currentCategory() {
 		if (places[currentPlayer] == 0)
 			return "Pop";
 		if (places[currentPlayer] == 4)
@@ -335,4 +317,67 @@ public class Game {
 	private boolean didPlayerWin() {
 		return !(purses[currentPlayer] == 6);
 	}
+	
+	
+	private void askQuestion() {
+	    String currentCategory = currentCategory();
+	    String currentQuestion = "";
+
+	    if (currentCategory.equalsIgnoreCase("Pop")) {
+	        questionList = popQuestions;
+	        answerList = popAnswers;
+	    } else if (currentCategory.equalsIgnoreCase("Science")) {
+	        questionList = scienceQuestions;
+	        answerList = scienceAnswers;
+	    } else if (currentCategory.equalsIgnoreCase("Sports")) {
+	        questionList = sportsQuestions;
+	        answerList = sportsAnswers;
+	    } else {
+	        questionList = rockQuestions;
+	        answerList = rockAnswers;
+	    }
+
+	    if (!questionList.isEmpty()) {
+	        currentQuestion = questionList.removeFirst();
+	        System.out.println(currentQuestion);
+	        setInputFromUser(sc.next());
+	        validateAnswer(currentCategory, currentQuestion, getInputFromUser());
+	    }
+	}
+
+	public boolean validateAnswer(String strCategory, String question, String inputFromUser) {
+	  
+	    if (strCategory.equalsIgnoreCase("Pop")) {
+	        answerList = popAnswers;
+	    } else if (strCategory.equalsIgnoreCase("Science")) {
+	        answerList = scienceAnswers;
+	    } else if (strCategory.equalsIgnoreCase("Sports")) {
+	        answerList = sportsAnswers;
+	    } else {
+	        answerList = rockAnswers;
+	    }
+
+	    if (answerList.contains(inputFromUser)) {
+	        return true;
+	    }
+
+	    return false;
+	}
+
+	public String getInputFromUser() {
+		return inputFromUser;
+	}
+
+	public void setInputFromUser(String inputFromUser) {
+		this.inputFromUser = inputFromUser;
+	}
+
+	public String getStrQuestion() {
+		return strQuestion;
+	}
+
+	public void setStrQuestion(String strQuestion) {
+		this.strQuestion = strQuestion;
+	}
+
 }
