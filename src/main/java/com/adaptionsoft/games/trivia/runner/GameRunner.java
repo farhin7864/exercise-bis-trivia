@@ -1,10 +1,18 @@
 
+
 package com.adaptionsoft.games.trivia.runner;
 
 import java.util.Random;
 
 import com.adaptionsoft.games.uglytrivia.Game;
 
+/**
+ * @author Farvin Nadaf
+ * 
+ * Description: This GameRunner class is responsible for adding players 
+ *              starts the game with rolling dice.
+ *
+ */
 public class GameRunner {
 
 	private static boolean notAWinner;
